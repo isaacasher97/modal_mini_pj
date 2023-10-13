@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal/>
+  <Modal :header=header :text=text theme="sale"/>
 </template>
 
 <script>
@@ -10,7 +10,9 @@ export default {
   name: 'App',
   data() {
     return {
-      title: 'Final Modal Title'
+      title: 'Final Modal Title',
+      header: "On Sale Now!",
+      text: "Get Your Today"
     }
   },
   components: { Modal }
