@@ -1,6 +1,9 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal :header=header :text=text theme="sale"/>
+  <div v-if="showModal">
+     <Modal :header=header :text=text theme="sale" @close="toggleModal"/>
+  </div>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
@@ -12,7 +15,13 @@ export default {
     return {
       title: 'Final Modal Title',
       header: "On Sale Now!",
-      text: "Get Your Today"
+      text: "Get Your Today",
+      showModal: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   },
   components: { Modal }
